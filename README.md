@@ -14,7 +14,7 @@ patch -p1 < linux_fix.patch
 /bin/bash install.sh
 ```
 
-This exact code is contained in the [linux_installer_latest.sh](linux_installer_latest.sh) file.
+This exact code is contained in the [linux_install_latest.sh](linux_install_latest.sh) file.
 
 **Question**: Why is this not submitted as a pull request against the upstream?
 
