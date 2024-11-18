@@ -11,7 +11,7 @@ diff --git a/install.sh b/install.sh
 +  # prevents installation on sudo-less Linux systems. For this reason, this fix
 +  # will not be contributed back: 
 +  # https://github.com/Homebrew/install/issues/668#issuecomment-1153600568
-+  HOMEBREW_PREFIX=${HOMEBREW_PREFIX:-"/home/linuxbrew/.linuxbrew"}
++  HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
    HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew"
    HOMEBREW_CACHE="${HOME}/.cache/Homebrew"
  
