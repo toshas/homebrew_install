@@ -1,0 +1,17 @@
+diff --git a/install.sh b/install.sh
+--- a/install.sh
++++ b/install.sh
+@@ -171,7 +171,12 @@ else
+   UNAME_MACHINE="$(uname -m)"
+ 
+   # On Linux, this script installs to /home/linuxbrew/.linuxbrew only
+-  HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
++  # HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
++  # But this legacy design, even if required upstream for backward compatibility,
++  # prevents installation on sudo-less Linux systems. For this reason, this fix
++  # will not be contributed back: 
++  # https://github.com/Homebrew/install/issues/668#issuecomment-1153600568
++  HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/home/linuxbrew/.linuxbrew}"
+   HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew"
+   HOMEBREW_CACHE="${HOME}/.cache/Homebrew"
+ 

@@ -1,5 +1,25 @@
 # Homebrew (un)installer
 
+## A fork designed to simplify installation in Linux in user space (without sudo)
+
+Simply run the following commands to apply the linux installation patch (exposing `$HOMEBREW_PREFIX` variable) to the upstream Homebrew `install.sh` script.
+
+```bash
+export HOMEBREW_PREFIX="${HOME}/.homebrew"
+export NONINTERACTIVE=1
+mkdir -p "${HOMEBREW_PREFIX}"
+wget -O install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+wget -O linux_fix.patch https://raw.githubusercontent.com/toshas/homebrew_install/HEAD/linux_fix.patch
+patch -p1 < linux_fix.patch
+/bin/bash install.sh
+```
+
+This exact code is contained in the [linux_installer_latest.sh](linux_installer_latest.sh) file.
+
+**Question**: Why is this not submitted as a pull request against the upstream?
+
+**Answer**: Because of an early design choice and maintainers' [decision](https://github.com/Homebrew/install/issues/668#issuecomment-1153600568) to not break backward compatibility.
+
 ## Install Homebrew (on macOS or Linux)
 
 ```bash
